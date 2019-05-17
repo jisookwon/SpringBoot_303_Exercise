@@ -27,12 +27,12 @@ public class HomeController {
     @GetMapping("/add")
     public String courseForm(Model model){
         model.addAttribute("todo", new Todo());
-        return "todoForm";
+        return "todoform";
     }
 
     @PostMapping("/process")
     public String processForm(@Valid Todo todo, BindingResult result, Model model){
-        model.addAttribute("todo", new Todo());
+        model.addAttribute("todo", todo);
 
         if (result.hasErrors()){
             return "todoform";
